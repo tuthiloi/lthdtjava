@@ -25,7 +25,7 @@ public class rectangle {
         this.lower_y = lower_y;
     }
     public double calcPerimeter(){
-        return (2*Math.abs(upper_x - lower_x)*Math.abs(upper_y - lower_y));
+        return (2*Math.abs(upper_x - lower_x)+ Math.abs(upper_y - lower_y));
     }
     public double calcArea(){
         return Math.abs(upper_x - lower_x)*(upper_y - lower_y);
