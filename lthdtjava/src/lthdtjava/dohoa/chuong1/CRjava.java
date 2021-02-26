@@ -148,7 +148,7 @@ public class CRjava extends javax.swing.JFrame {
         Integer.parseInt(txtg.getText()));
         String result ="Dien tich cua hinh chu nhat " +hcn.calcArea();
         result +=";chu vi"+hcn.calcPerimeter();
-        lstds.append(result);
+        lstds.append(hcn.toString());
     }//GEN-LAST:event_txttinhActionPerformed
 
     /**
