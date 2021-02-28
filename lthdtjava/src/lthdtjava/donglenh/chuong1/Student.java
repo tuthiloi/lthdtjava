@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Lợii
  */
-public class Student extends person{
+public class Student extends person implements TaxInterface{
     private String truonghoc;
     
 
@@ -34,6 +34,16 @@ public Student(){
 //    public Student(String hoten, int gioitinh, Date ngaysinh) {
 //        super(hoten, gioitinh, ngaysinh);
  }
+
+    @Override
+    public double calcTax(double income) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+    double tax;
+    tax=0.01*income;
+    return  tax;
+  }
+ 
 }
  
 
