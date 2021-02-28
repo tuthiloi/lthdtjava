@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Lợii
  */
-public class Worker extends person{
+public class Worker extends person implements TaxInterface{
     private String conty;
 
     public Worker() {
@@ -36,6 +36,11 @@ public class Worker extends person{
 
     void getNgaysinh(Date parse) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double calcTax(double income) {
+        return (0.04*income);
     }
     
     
