@@ -27,14 +27,14 @@ public class Bai6 {
    sinhvien.setNgaysinh(df.parse("12-12-2002"));
    sinhvien.setTruonghoc("Dai hoc hue");
    System.out.print(sinhvien.getHoten()+ ";gioitinh "+sinhvien.getGioitinh() + ";ngaysinh: "+df.format(sinhvien.getNgaysinh()) +";"+sinhvien.getTruonghoc());
-   Worker cn=new Worker();
-   
+ System.out.print(sinhvien.calcTax(1200));
    Worker congnhan =new Worker();
    congnhan.setHoten("Nguyen van C");
    congnhan.setGioitinh(0);
    congnhan.setNgaysinh(df.parse("02-09-2003"));
    congnhan.setConty("IBM");
    System.out.print(congnhan.getHoten()+ ";gioitinh "
-           +congnhan.getGioitinh() + ";ngaysinh: "+df.format(congnhan.getNgaysinh()) +"; cong ty"+congnhan.getConty());
+           +congnhan.getGioitinh() + ";ngaysinh : " +df.format(congnhan.getNgaysinh()) + "; cong ty"+congnhan.getConty());
+  System.out.print(congnhan.calcTax(2000));
    } 
 }
