@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Student extends person implements TaxInterface{
     private String truonghoc;
+    public int getHocluc;
     
 
 //    public Student(String hoten, int gioitinh, Date ngaysinh) {
@@ -26,6 +27,10 @@ public Student(){
         super(hoten, gioitinh, ngaysinh);
         this.truonghoc=truonghoc;
  }
+
+    public Student(String dai_hoc_hue, String xuat_sac, String nguyen_Van_A, int i, Date ngaysinh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  public String getTruonghoc(){
      return truonghoc;
  }
@@ -43,6 +48,14 @@ public Student(){
     tax=0.01*income;
     return  tax;
   }
+
+    public void sethocbong(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getHocluc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
 }
  
