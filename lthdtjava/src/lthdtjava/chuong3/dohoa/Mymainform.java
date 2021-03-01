@@ -5,6 +5,10 @@
  */
 package lthdtjava.chuong3.dohoa;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lthdtjava.chuong3.dohoa.frames.Mycoffee;
 import lthdtjava.chuong3.dohoa.frames.Xuatdlieuframe;
 
 /**
@@ -13,6 +17,7 @@ import lthdtjava.chuong3.dohoa.frames.Xuatdlieuframe;
  */
 public class Mymainform extends javax.swing.JFrame {
 Xuatdlieuframe frm;
+Mycoffee frmcf;
     /**
      * Creates new form Mymainform
      */
@@ -35,6 +40,7 @@ Xuatdlieuframe frm;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        cpcf = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chuong trinh thao tac voi marng 1 chieu");
@@ -72,6 +78,14 @@ Xuatdlieuframe frm;
         });
         jMenu2.add(jMenuItem1);
 
+        cpcf.setText("coffee");
+        cpcf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpcfActionPerformed(evt);
+            }
+        });
+        jMenu2.add(cpcf);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -105,6 +119,25 @@ Xuatdlieuframe frm;
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void cpcfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpcfActionPerformed
+
+        // TODO add your handling code here:
+        if(frmcf ==null || frmcf.isClosed()){
+            
+        
+            try {
+                frmcf =new Mycoffee();
+                jDesktop.add(frmcf);
+                frmcf.setLocation(this.getWidth()/2-frmcf.getWidth()/2,this.getHeight()/2-frmcf.getHeight()/2);
+                frmcf.setVisible(true);
+            } catch (ParseException ex) {
+                Logger.getLogger(Mymainform.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+                                       
+
+    }//GEN-LAST:event_cpcfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +175,7 @@ Xuatdlieuframe frm;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem cpcf;
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

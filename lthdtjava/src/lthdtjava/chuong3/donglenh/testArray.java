@@ -56,6 +56,8 @@ for(int i=0;i<n;i++){
     c[i]=rnd.nextInt(1000);
     }
     System.out.println(Arrays.toString(c));
+//    Arrays.sort(c);
+//    System.out.println(Arrays.toString(c));
 
     }
 
