@@ -58,7 +58,34 @@ for(int i=0;i<n;i++){
     System.out.println(Arrays.toString(c));
 //    Arrays.sort(c);
 //    System.out.println(Arrays.toString(c));
-
+//tim kiem vet can
+System.out.print("nhap gia tri can tim kiem x=");
+input=sc.nextLine();
+int x=Integer.parseInt(input);
+//sap xep mang theo chieu tang dan
+Arrays.sort(c);
+System.out.println("Mang sau khi sap xep tang dan la");
+//tim kiem nhi phan
+int index=Arrays.binarySearch(c, x);
+if(index<0){
+    System.out.println("khong tim thay");
+    
+}
+else {
+    System.out.println("Tim thay tai vi tri thu"+index);
+}
+//int x=Integer.parseInt(input);
+//boolean flag =false;
+//for(int i=0;i<c.length;i++){
+//    if(c[i]==x){
+//        System.out.println("Gia tri can tim gia tri tim kiem co trong mang tai vi tri"+i);
+//        flag=true;
+//        break;
+//    }
+//    if(!flag){
+//        System.out.println("Gia tri can tim khong co trong mang");
+//    }
+//}
     }
 
 }

@@ -31,11 +31,18 @@ public class testProductArray {
 //                    sp[j]=temp;
 //                }
 //sap xep mang theo gia ca tang dan
-    Arrays.sort(sp,new productCompByPrice());
-    System.out.println("Mang sap xep tang dan theo gia ca");
-    System.out.println(Arrays.toString(sp));
+//    Arrays.sort(sp,new productCompByPrice());
+//    System.out.println("Mang sap xep tang dan theo gia ca");
+//    System.out.println(Arrays.toString(sp));
     System.out.println("Sap xep san pham theo ten san pham");
     Arrays.sort(sp,new  ProductCompByname());
     System.out.println(Arrays.toString(sp));
-            }
+    int index=Arrays.binarySearch(sp, new Product("Sunsilk",12),new ProductCompByname());
+    if(index<0){
+        System.out.println("Khong tim thay");
+    }else{
+        System.out.println("Phan tu thu"+index+"Chua gia tri can tim");
+        System.out.println(sp[index]);
+    
+    }       }
 }
