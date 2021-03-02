@@ -21,6 +21,10 @@ public class Product {
         this.price = price;
     }
 
+    public Product(String sunsilk, int i, ProductCompByname productCompByname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getName() {
         return name;
     }
