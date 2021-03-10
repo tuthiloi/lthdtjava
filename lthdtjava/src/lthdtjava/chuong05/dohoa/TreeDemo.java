@@ -5,7 +5,9 @@
  */
 package lthdtjava.chuong05.dohoa;
 
-import javax.swing.tree.TreeModel;
+import java.io.File;
+import javax.swing.tree.DefaultMutableTreeNode;
+import lthdtjava.chuong05.logic.FileAndDirectoryOperations;
 import lthdtjava.chuong05.logic.FileTreeModel;
 import lthdtjava.chuong05.logic.TreeDemoModel;
 
@@ -14,17 +16,19 @@ import lthdtjava.chuong05.logic.TreeDemoModel;
  * @author Lợii
  */
 public class TreeDemo extends javax.swing.JFrame {
-  FileTreeModel tree;
+    FileTreeModel tree;
+
     /**
      * Creates new form TreeDemo
      */
     public TreeDemo() {
         initComponents();
-//        TreeDemoModel model=new TreeDemoModel();
-    tree=new FileTreeModel("D:\\zila\\zilaa\\FileZilla FTP Client\\docs");
-        this.jTree.setModel((TreeModel) tree);
+        //TreeDemoModel model=new TreeDemoModel();
+        tree=new FileTreeModel("D:\\Teaching");
+        
+        this.jTree.setModel(tree);
+                
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,8 +44,13 @@ public class TreeDemo extends javax.swing.JFrame {
         textArea1 = new java.awt.TextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Minh họa sử dụngJTREE");
+        setTitle("Minh họa sử dụng Jtree");
 
+        jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                jTreeValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTree);
 
         jSplitPane1.setLeftComponent(jScrollPane1);
@@ -51,17 +60,26 @@ public class TreeDemo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
+        // TODO add your handling code here:
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) jTree.getLastSelectedPathComponent();
+        if(node==null)
+            return;
+        File nodeInfo = (File) node.getUserObject();
+        FileAndDirectoryOperations fo = new FileAndDirectoryOperations();
+        File[] list =fo.getDirectoryContent(nodeInfo.getPath());
+        this.textArea1.setText(fo.displayContent(list));
+    }//GEN-LAST:event_jTreeValueChanged
 
     /**
      * @param args the command line arguments
@@ -104,4 +122,7 @@ public class TreeDemo extends javax.swing.JFrame {
     private javax.swing.JTree jTree;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
+
+   
 }
+

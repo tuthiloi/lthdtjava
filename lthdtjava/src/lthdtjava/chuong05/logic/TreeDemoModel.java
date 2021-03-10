@@ -11,42 +11,45 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+
 /**
  *
  * @author Lợii
  */
-public class TreeDemoModel implements TreeModel{
-DefaultTreeModel tree;
-DefaultMutableTreeNode rootNodel;
-    
+public class TreeDemoModel implements TreeModel {
+    DefaultTreeModel tree;
+    DefaultMutableTreeNode rootNode;
+
     public TreeDemoModel() {
-        ////khoi tao cay
-        rootNodel =buidTree("Car&Motor");
-        tree=new DefaultTreeModel(rootNodel);
+        //khoi tao cay
+        rootNode =buildTree ("Car&Motor");
+        tree=new DefaultTreeModel(rootNode);
+    } 
+    private DefaultMutableTreeNode buildTree(String rootName){
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode(rootName);
+        //xay dung cac nut con cho cac nut goc
+        DefaultMutableTreeNode car = new DefaultMutableTreeNode("Car");
+        DefaultMutableTreeNode motor = new DefaultMutableTreeNode("Motor");
+        //Dua vao nut goc
+        root.add(car);
+        root.add(motor);
+        //xay dung cac nut con cho car
+       DefaultMutableTreeNode honda = new DefaultMutableTreeNode("Honda");
+       DefaultMutableTreeNode mazda = new DefaultMutableTreeNode("Mazda");
+       DefaultMutableTreeNode toyota = new DefaultMutableTreeNode("Toyota");
+       car.add(honda);
+       car.add(mazda);
+       car.add(toyota);
+
+       //Xay dung cac nut con cho motor
+       DefaultMutableTreeNode suzuki = new DefaultMutableTreeNode("Suzuki");
+       DefaultMutableTreeNode yamaha = new DefaultMutableTreeNode("Yamaha");
+       motor.add(yamaha);
+       motor.add(suzuki);
+       
+       //Tra ve nut goc cua cay
+       return root;
     }
-private DefaultMutableTreeNode buildTree(String rootName){
-    DefaultMutableTreeNode root=new DefaultMutableTreeNode(rootName);
-    //Xay dung cac nut con cho nut root
-    DefaultMutableTreeNode car=new DefaultMutableTreeNode("Car");
-    DefaultMutableTreeNode Motor=new DefaultMutableTreeNode("Motor");
-    //Dua vao nut root
-    root.add(car);
-    root.add(Motor);
-    //xay dung cac nut con cho car
-    DefaultMutableTreeNode honda=new DefaultMutableTreeNode("honda");
-    DefaultMutableTreeNode Mazda=new DefaultMutableTreeNode("Mazda");
-    DefaultMutableTreeNode toyota=new DefaultMutableTreeNode("toyota");
-    car.add(honda);
-    car.add(toyota);
-    car.add(Mazda);
-    //motor
-     DefaultMutableTreeNode suzuki=new DefaultMutableTreeNode("suzuki");
-    DefaultMutableTreeNode yamaha=new DefaultMutableTreeNode("yamaha");
-    car.add(suzuki);
-    car.add(yamaha);
-    //tra ve nút goc cua cay
-    return root;
-}
 
     public DefaultTreeModel getTree() {
         return tree;
@@ -56,64 +59,56 @@ private DefaultMutableTreeNode buildTree(String rootName){
         this.tree = tree;
     }
 
-    public DefaultMutableTreeNode getRootNodel() {
-        return rootNodel;
+    public DefaultMutableTreeNode getRootNode() {
+        return rootNode;
     }
 
-    public void setRootNodel(DefaultMutableTreeNode rootNodel) {
-        this.rootNodel = rootNodel;
+    public void setRootNode(DefaultMutableTreeNode rootNode) {
+        this.rootNode = rootNode;
     }
-
+    
+    
+    
+    
     @Override
     public Object getRoot() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return this.rootNodel;    
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      return this.rootNode;
     }
 
     @Override
     public Object getChild(Object parent, int index) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-         return tree.getChild(parent, index);
+    return tree.getChild(parent, index);
     }
 
     @Override
     public int getChildCount(Object parent) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    return tree.getChildCount(parent);
+        return tree.getChildCount(parent);
     }
 
     @Override
     public boolean isLeaf(Object node) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    return tree.isLeaf(node);
+        return tree.isLeaf(node);
     }
 
     @Override
     public void valueForPathChanged(TreePath path, Object newValue) {
-    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    tree.valueForPathChanged(path, newValue);
+      tree.valueForPathChanged(path, newValue);
     }
 
     @Override
     public int getIndexOfChild(Object parent, Object child) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    return tree.getIndexOfChild(parent, child);
+     return tree.getIndexOfChild(parent, child);
     }
 
     @Override
     public void addTreeModelListener(TreeModelListener l) {
-    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     tree.addTreeModelListener(l);
     }
 
     @Override
     public void removeTreeModelListener(TreeModelListener l) {
-    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    tree.removeTreeModelListener(l);
-    }
-
-    private DefaultMutableTreeNode buidTree(String carMotor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      tree.removeTreeModelListener(l);
     }
     
 }
