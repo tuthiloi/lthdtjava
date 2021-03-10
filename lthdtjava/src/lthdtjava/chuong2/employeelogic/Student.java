@@ -24,15 +24,19 @@ public Student(){
         this.truonghoc=truonghoc;
  }
 
-    public Student(String truonghoc, String hocluc, double hocbong, String hoten, int gioitinh, Date ngaysinh) {
+    public Student(String truonghoc, String hocluc, String hoten, int gioitinh, Date ngaysinh) {
         super(hoten, gioitinh, ngaysinh);
         this.truonghoc = truonghoc;
         this.hocluc = hocluc;
-        this.hocbong = hocbong;
+       
     }
 
+//    public Student(String text, String toString, String text0, Object selectedItem, Date date) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
     public Student(String text, String toString, String text0, Object selectedItem, Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -18,22 +18,20 @@ import lthdtjava.chuong2.employeelogic.Student;
 public class teststudent {
     @SuppressWarnings("empty-statement")
     public static void main(String [] args) throws ParseException{
-    SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-    String input ="12-12-1999";
-    Date ngaysinh =df.parse(input);
-        Student obj = new Student("Dai hoc hue","Xuat sac", "Nguyen Van A",1, ngaysinh); ;
-   
-    
-      switch(obj.getHocluc()){
-          case "Xuat sac":
-              obj.setHocbong(1000);
-            break;        
-        case "Gioi":
-            obj.setHocbong( 885.5);
-            break;
-        default:
-            obj.setHocbong(0);
-            break;
+    SimpleDateFormat df= new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        String input="12-12-1998";
+        Date ngaysinh = df.parse(input);
+        Student obj = new Student("Đại học Kinh tế Huế", "Xuất sắc", "Hoa Thị Đào", 0, ngaysinh);
+        switch(obj.getHocluc()){
+            case "Xuất sắc":
+                obj.setHocbong(1000);
+                break;
+            case "Giỏi":
+                obj.setHocbong(855.5);
+                break;
+            default:
+                obj.setHocbong(0);
+                break;
       }
     System.out.println(obj);
     }   
